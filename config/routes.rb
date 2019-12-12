@@ -5,8 +5,9 @@ Rails.application.routes.draw do
       resources :reviews
       resources :establishments
       resources :blacklists
-      post '/login', to: 'auth#create'
-      get '/profile', to: 'users#profile'
+      post "/login", to: "users#login"
+      post "/signup", to: "users#create"    
+      get "/validate", to: "users#validate"
     end
   end
 end
