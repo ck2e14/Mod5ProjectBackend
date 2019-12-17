@@ -6,6 +6,9 @@ Review.create(rating: 5, content: 'test review cont', user_id: 1, establishment_
 Establishment.create(name: 'The Dolphin', location: 'Dorking', type_of: 'Restaurant')
 
 Blacklist.create(user_id: 1, establishment_id: 2, comment: 'pretty bad place not gonna lie')
+Blacklist.create(user_id: 7, establishment_id: 1, comment: 'rubbish')
+
+
 
 
 # *********************** example of users post ******************** CURRENTLY WORKING 
