@@ -12,6 +12,8 @@ class Api::V1::AuthController < ApplicationController
        render json: { message: 'Invalid username or password' }, status: :unauthorized
      end
    end
+
+  #  test 
   
    private
   
