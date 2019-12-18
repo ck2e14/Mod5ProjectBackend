@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
      if user&.authenticate(login_params[:password])
        render json: { user: UserSerializer.new(user), token: issue_token(user_id: user.id) }
      else
-       render json: { errors: ['Username or password incorrect'] }, status: :not_accepted
+       render json: { errors: ['Username or password incorrect'] }
      end
    end
  
@@ -47,3 +47,14 @@ class Api::V1::UsersController < ApplicationController
    end
  end
  
+
+#  back up
+
+# def login
+#   user = User.find_by(username: login_params[:username])
+#   if user&.authenticate(login_params[:password])
+#     render json: { user: UserSerializer.new(user), token: issue_token(user_id: user.id) }
+#   else
+#     render json: { errors: ['Username or password incorrect'] }, status: :not_accepted
+#   end
+# end

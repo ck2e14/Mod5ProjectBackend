@@ -49,20 +49,20 @@ Blacklist.create(user_id: 7, establishment_id: 1, comment: 'rubbish')
 
 #    ******* establishment post ***** make it so that it can inject information from the API***CURRENTLY WORKING
 
-#    fetch('http://localhost:3000/api/v1/establishments', {
-#       method: 'POST',
-#       headers: {
-#          'Content-Type': 'application/json',
-#          Accept: 'application/json'
-#       },
-#       body: JSON.stringify({
-#          establishment: {
-#             location: 'Hackney',
-#             name: 'Pret',
-#             type_of: 'Pub/Bar/Club'
+   # fetch('http://localhost:3000/api/v1/establishments', {
+   #    method: 'POST',
+   #    headers: {
+   #       'Content-Type': 'application/json',
+   #       Accept: 'application/json'
+   #    },
+   #    body: JSON.stringify({
+   #       establishment: {
+   #          location: 'Hackney',
+   #          name: 'Pret',
+   #          type_of: 'Pub/Bar/Club'
 
-#          }
-#       })
-#    }).then(resp => resp.json())
-#    .then(data => console.log(data))
+   #       }
+   #    })
+   # }).then(resp => resp.json())
+   # .then(data => console.log(data))
    

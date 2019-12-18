@@ -1,7 +1,7 @@
 class Api::V1::BlacklistsController < ApplicationController
 
    def index
-      @blacklisted = Blacklist.find_by(id:1)
+      @blacklisted = Blacklist.all
       render json: @blacklisted
    end
 
@@ -11,21 +11,21 @@ class Api::V1::BlacklistsController < ApplicationController
    end
 
    def create
-      @review = Blacklist.create(blacklist_params)
-      if @blacklist.valid? 
-         render json: { blacklist: BlacklistSerializer.new(@blacklist) }, status: :created
+      @blacklisted = Blacklist.create(blacklist_params)
+      if @blacklisted.valid? 
+         render json: { blacklist: BlacklistSerializer.new(@blacklisted) }, status: :created
       else
          render json: { error: 'Failed to blacklist this establishment. Please try again.' }, status: :not_acceptable
       end
    end
 
    def destroy
-      @blacklist = Blacklist.find_by(user_id:params[:id])
+      @blacklisted = Blacklist.find_by(user_id:params[:id])
    end
 
    private
    def blacklist_params
-      params.require(:blacklist).permit(:user_id, :establishment_id, :comment)
+      params.require(:blacklist).permit(:user_id, :establishment_id)
    end
 
 

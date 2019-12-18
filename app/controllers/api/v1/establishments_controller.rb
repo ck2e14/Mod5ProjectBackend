@@ -15,7 +15,7 @@ class Api::V1::EstablishmentsController < ApplicationController
 
    private
    def establishment_params
-      params.require(:establishment).permit(:name, :location, :type_of)
+      params.require(:establishment).permit(:name, :location, :type_of, :latitude, :longitude, :localAuth, :postcode, :ratingValue, :ratingDate)
    end
    
 end
