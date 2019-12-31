@@ -4,6 +4,10 @@ class Api::V1::EstablishmentsController < ApplicationController
       render json: @establishments
    end
 
+   def show
+      @establishment = Establishment.find(params[:id])
+      render json: @establishment
+   end
    def create
       @establishment = Establishment.create(establishment_params)
       if @establishment.valid?
