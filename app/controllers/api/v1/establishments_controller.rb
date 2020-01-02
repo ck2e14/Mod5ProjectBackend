@@ -5,7 +5,7 @@ class Api::V1::EstablishmentsController < ApplicationController
    end
 
    def show
-      @establishment = Establishment.find(params[:id])
+      @establishment = Establishment.find(params[:id])   
       render json: @establishment
    end
    def create
