@@ -20,7 +20,10 @@ class Api::V1::BlacklistsController < ApplicationController
    end
 
    def destroy
-      @blacklisted = Blacklist.find_by(user_id:params[:id])
+      @blacklist = Blacklist.find(params[:id])
+      @blacklistID = @blacklist.id
+      @blacklist.delete
+      render json: @blacklistID
    end
 
    private
