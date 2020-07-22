@@ -1,7 +1,7 @@
 class Api::V1::AuthController < ApplicationController
-   skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create]
   
-   def create
+  def create
     @user = User.find_by(username: user_login_params[:username])
     #User#authenticate comes from BCrypt
     if @user && @user.authenticate(user_login_params[:password])
@@ -15,13 +15,12 @@ class Api::V1::AuthController < ApplicationController
 
 
   
-   private
+  private
   
-   def user_login_params
-     params.require(:user).permit(:username, :password)
-   end
- end
+  def user_login_params
+    params.require(:user).permit(:username, :password)
+  end
 
+  def authorized; end
 
-
- 
+end
