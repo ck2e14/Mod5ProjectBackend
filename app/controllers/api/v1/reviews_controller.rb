@@ -6,6 +6,7 @@ class Api::V1::ReviewsController < ApplicationController
 
    def show
       @review = Review.find(params[:id])
+      # need to actually provide a render here lol
    end
 
    def create

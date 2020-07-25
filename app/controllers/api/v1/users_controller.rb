@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  # validates :username, uniqueness: true
 
   def create
     @user = User.create(user_params)
@@ -42,20 +43,11 @@ class Api::V1::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
+# user_params expects a user object, containing another object, which contains keys of username and password. That happens from the submit of the signup form on frontend which calls POST fetch to the appropriate endpoint (/users) and jsonify's & sends an object in the EXACT STRUCTURE just mentioned and defined by user_params method.
+
 
   def login_params
     params.require(:user).permit(:username, :password)
   end
 end
-
-
-#  back up
-
-# def login
-#   user = User.find_by(username: login_params[:username])
-#   if user&.authenticate(login_params[:password])
-#     render json: { user: UserSerializer.new(user), token: issue_token(user_id: user.id) }
-#   else
-#     render json: { errors: ['Username or password incorrect'] }, status: :not_accepted
-#   end
-# end
+# login_params doesn't req password_confirmation because it was done once as signup
