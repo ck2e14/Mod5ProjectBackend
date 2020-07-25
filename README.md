@@ -1,24 +1,9 @@
-# README
+This repo contains the API backend for __Hygenik. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The API is driven by Rails and PostgreSQL.
 
-Things you may want to cover:
+The link to the live frontend is https://mod5-frontend.herokuapp.com/
 
-* Ruby version
+Feedback is always welcome!
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+chriswkennedy@icloud.com
