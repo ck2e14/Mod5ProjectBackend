@@ -1,15 +1,27 @@
 class Api::V1::UsersController < ApplicationController
   # validates :username, uniqueness: true
-
+  
   def create
     @user = User.create(user_params)
     if @user.valid?
       render json: { user: UserSerializer.new(@user), token: issue_token(user_id: @user.id) }, status: :created
     else
-      render json: { errors: ['failed to create user'] }, status: :not_acceptable
+      render json: { errors: ['Username exists already!'] }
     end
   end
-# token issued via BCrypt Gem
+  # token issued via BCrypt Gem
+  # this new create method (old is commented below) removes status text because I can't 
+  # get Rails to return the custom JSON alongside the status text for some reason. Now frontend 
+  # renders the returned error json msg
+
+  # def create
+  #   @user = User.create(user_params)
+  #   if @user.valid?
+  #     render json: { user: UserSerializer.new(@user), token: issue_token(user_id: @user.id) }, status: :created
+  #   else
+  #     render json: { errors: ['failed to create user'] }, status: :not_acceptable
+  #   end
+  # end
 
   def login
     user = User.find_by(username: login_params[:username])
