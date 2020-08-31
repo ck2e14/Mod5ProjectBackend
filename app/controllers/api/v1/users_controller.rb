@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   # validates :username, uniqueness: true
-  
+
   def create
     @user = User.create(user_params)
     if @user.valid?
